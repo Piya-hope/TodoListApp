@@ -1,0 +1,41 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\LENOVO> cd D:\TodoList
+PS D:\TodoList> dir
+
+
+    Directory: D:\TodoList
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         9/16/2026  12:37 PM                todo-client
+d-----         10/5/2026   6:22 PM                TodoApplication
+-a----         10/5/2026   6:27 PM            172 .gitignore
+-a----         9/13/2026   3:05 PM           1532 TodoListMap.txt
+-a----         9/17/2026  11:25 AM           2330 TodoMakeProjectCommand.txt
+
+
+PS D:\TodoList> git init
+Reinitialized existing Git repository in D:/TodoList/.git/
+PS D:\TodoList> git add .
+PS D:\TodoList> git status
+On branch main
+nothing to commit, working tree clean
+PS D:\TodoList> git remote -v
+PS D:\TodoList> git remote add origin https://github.com/Piya-hope/TodoListApp.git
+PS D:\TodoList> git push -u origin main
+Enumerating objects: 51, done.
+Counting objects: 100% (51/51), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (45/45), done.
+Writing objects: 100% (51/51), 42.52 KiB | 870.00 KiB/s, done.
+Total 51 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/Piya-hope/TodoListApp.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+PS D:\TodoList>
