@@ -1,0 +1,67 @@
+CREATE TABLE TodoItems
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Title NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(500) NULL,
+    IsCompleted BIT NOT NULL DEFAULT 0,
+    CreatedDate DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+
+1) Project Structure.
+
+TodoApplication
+│
+├── TodoApi          ← ASP.NET Core Web API
+│
+└── todo-client      ← React application
+
+
+Architecture:
+
+React Frontend
+     ↓
+HTTP / Axios
+     ↓
+ASP.NET Core Web API
+     ↓
+Entity Framework Core
+     ↓
+SQL Server
+
+***************************Command For EF Framework****************************
+1. Check your project target framework
+
+In PowerShell, inside your TodoApi folder, run:
+
+Get-Content .\TodoApi.csproj
+
+You should see something like:
+
+<TargetFramework>net9.0</TargetFramework>
+2. If it says net9.0
+
+Install EF Core 9 packages:
+
+dotnet add package Microsoft.EntityFrameworkCore --version 9.0.8
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 9.0.8
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 9.0.8
+
+Then:
+
+dotnet restore
+
+and:
+
+dotnet build
+
+After this, this line should work:
+
+using Microsoft.EntityFrameworkCore;
+3. If your .csproj says net8.0
+
+That's also okay, but use EF Core 8 packages instead:
+
+dotnet add package Microsoft.EntityFrameworkCore --version 8.0.19
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.19
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 8.0.19
